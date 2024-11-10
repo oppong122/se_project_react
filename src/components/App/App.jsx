@@ -6,11 +6,14 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-// import { getWeather } from "../../utils/weatherApi";
-// import { coordinates, APIkey } from "../../utils/constants";
+import { getWeather } from "../../utils/weatherApi";
+import { coordinates, APIkey } from "../../utils/constants";
 
 function App() {
-  const [weatherData, setWeatherData] = useState({ type: "cold" });
+  const [weatherData, setWeatherData] = useState({
+    type: " ",
+    temp: { F: 999, C: 999 },
+  });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -26,9 +29,13 @@ function App() {
     setSelectedCard(card);
   };
 
-  // useEffect(() => {
-  //   getWeather(coordinates, APIkey);
-  // }, []);
+  useEffect(() => {
+    getWeather(coordinates, APIkey)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <div className="page">
@@ -98,7 +105,7 @@ function App() {
       <ItemModal
         activeModal={activeModal}
         card={selectedCard}
-        Onclose={closeActiveModal}
+        onClose={closeActiveModal}
       />
 
       <Footer />
