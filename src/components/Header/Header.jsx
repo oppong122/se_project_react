@@ -7,11 +7,13 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header({ handleAddClick }) {
+function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <img src={logo} alt="" className="header__logo" />
-      <p className="header__date-location">{currentDate}, New York</p>
+      <p className="header__date-location">
+        {currentDate}, {weatherData.city}
+      </p>
       <button
         onClick={handleAddClick}
         type="button"

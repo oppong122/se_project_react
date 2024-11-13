@@ -1,10 +1,34 @@
-import sunny from "../../assets/sunny.png";
+import clear from "../../assets/day/clear.png";
 import "./WeatherCard.css";
-function WeatherCard() {
+import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
+function WeatherCard({ weatherData }) {
+  const filteredOption = weatherOptions.filter((option) => {
+    // debugger;
+    return (
+      option.day === weatherData.isDay &&
+      option.condition === weatherData.condition
+    );
+  });
+
+  let weatherOption;
+  if (filteredOption.length === 0) {
+    weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
+  } else {
+    weatherOption = filteredOption[0];
+  }
+
+  console.log(weatherOption);
+
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">75 &deg;</p>
-      <img src={sunny} alt="sunny" className="weather-card__image" />
+      <p className="weather-card__temp">{weatherData.temp.F} &deg;</p>
+      <img
+        src={weatherOption?.url}
+        alt={`Card showing ${weatherOption?.day ? "day" : "night"}time ${
+          weatherOption?.condition
+        } weather`}
+        className="weather-card__image"
+      />
     </section>
   );
 }
