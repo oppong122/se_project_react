@@ -22,6 +22,7 @@
   padding: 28px;
   border-radius: 20px;
   object-fit: fill;
+  box-sizing: border-box;
   /* width: 100%; */
   /* height: 436px; */
 }
