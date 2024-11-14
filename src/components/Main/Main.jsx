@@ -1,6 +1,6 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import { defaultClothingItems } from "../../utils/constants";
-import RenderCard from "../renderCard/renderCard";
+import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 // import { filterWeatherData } from "../../utils/weatherApi";
 
@@ -20,7 +20,7 @@ function Main({ weatherData, handleCardClick }) {
             })
             .map((item) => {
               return (
-                <RenderCard
+                <ItemCard
                   key={item._id}
                   item={item}
                   onCardClick={handleCardClick}
