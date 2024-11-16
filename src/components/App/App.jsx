@@ -22,6 +22,7 @@ function App() {
     setActiveModal("add-garment");
   };
   const closeActiveModal = () => {
+    console.log("is this firing");
     setActiveModal("");
   };
 
@@ -49,8 +50,9 @@ function App() {
         <ModalWithForm
           buttonText="Add garment"
           title="New Garment"
-          activeModal={activeModal}
-          OnClose={closeActiveModal}
+          // activeModal={activeModal}
+          onClose={closeActiveModal}
+          isOpen={activeModal === "add-garment"}
         >
           <label htmlFor="name" className="modal__label">
             Name
@@ -96,7 +98,7 @@ function App() {
                 name="weatherTemp"
                 id="warm"
                 type="radio"
-                className="modal__modal__radio_input"
+                className="modal__radio_input"
               />
               Warm
             </label>
@@ -108,7 +110,7 @@ function App() {
                 name="weatherTemp"
                 id="cold"
                 type="radio"
-                className="modal__modal__radio_input"
+                className="modal__radio_input"
               />
               Cold
             </label>
