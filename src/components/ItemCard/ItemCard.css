@@ -9,6 +9,7 @@
   position: absolute;
   top: 15px;
   margin: 0;
+  background-color: #fff;
 }
 
 .card__image {
@@ -16,4 +17,17 @@
   border-radius: 19px;
   border: 1px;
   background-color: rgba(233, 233, 233, 1);
+}
+
+@media screen and (max-width: 400px) {
+  .card__image {
+    width: 164px;
+    height: 164px;
+  }
+
+  .card__name {
+    max-width: 100%;
+    /* margin-bottom: -1px; */
+    font-size: 15px;
+  }
 }

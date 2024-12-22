@@ -20,3 +20,10 @@
   object-position: right top;
   width: 100%;
 }
+
+@media screen and (max-width: 400px) {
+  .weather-card__image {
+    width: 343px;
+    height: 80px;
+  }
+}

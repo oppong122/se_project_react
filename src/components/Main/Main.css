@@ -6,3 +6,13 @@
   list-style-type: none;
   gap: 21px;
 }
+@media screen and (max-width: 400px) {
+  .card__text {
+    margin: 32px 0 20px 0;
+    width: 340px;
+  }
+
+  .card__list {
+    gap: 15px;
+  }
+}

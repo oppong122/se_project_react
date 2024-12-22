@@ -10,13 +10,22 @@ export const getWeather = ({ latitude, longitude }, APIkey) => {
   });
 };
 
+// function tempConvertor(temp, type) {}
+
 export const filterWeatherData = (data) => {
   const result = {};
   result.city = data.name;
   result.temp = { F: data.main.temp };
   result.type = getWeatherType(result.temp.F);
+  // const weather = {
+  //   temp: {
+  //     F: Math.round(temp),
+  //     C: Math.round(((data.main.temp - 32) * 5) / 9),
+  //   },
+  // };
+  // console.log(weather);
   result.conditon = data.weather[0].main.toLowerCase;
-  result.isDay = isDay(data.sys, Date.now);
+  result.weather = result.isDay = isDay(data.sys, Date.now);
 
   return result;
 };

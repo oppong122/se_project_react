@@ -11,3 +11,13 @@
 .year {
   margin-left: auto;
 }
+
+@media screen and (max-width: 400px) {
+  .footer {
+    margin: 80px 0 0 0;
+  }
+
+  .author {
+    margin: 0;
+  }
+}

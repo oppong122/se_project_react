@@ -1,6 +1,7 @@
 .page {
   background-color: #f3f3f3;
   font-family: inter;
+
   display: flex;
 }
 
@@ -8,4 +9,15 @@
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.modal__radio-input:checked + .modal__label_type_radio {
+  color: rgba(0, 0, 0, 1);
+}
+
+@media screen and (max-width: 400px) {
+  .page__content {
+    margin: 0;
+    padding: 10px;
+  }
 }

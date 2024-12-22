@@ -103,3 +103,9 @@
 .modal__weather {
   margin: 0;
 }
+
+@media screen and (max-width: 400px) {
+  .modal__image {
+    width: 343px;
+  }
+}
