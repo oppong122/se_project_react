@@ -9,6 +9,7 @@
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 20px;
+  background-color: #f3f3f3;
 }
 
 .modal__radio-input:checked + .modal__label_type_radio {

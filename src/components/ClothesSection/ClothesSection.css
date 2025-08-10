@@ -1,0 +1,14 @@
+.cloth-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.cloth-item__container {
+  display: flex;
+}
+
+.cothe-section__button {
+  border: 0;
+  color: gray;
+  background-color: #f3f3f3;
+}

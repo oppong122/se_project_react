@@ -1,0 +1,55 @@
+.modal_container-delete {
+  position: relative;
+  background-color: white;
+  width: 670px;
+  height: 280px;
+  border-radius: 5px;
+}
+.close_Delet-Modal {
+  position: absolute;
+  right: 146px;
+  padding: 0;
+  border: 0;
+  color: white;
+}
+
+.close_delete {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 20px;
+  left: 110px;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+.comfirm_delet-text {
+  display: block;
+  text-align: center;
+  /* font-family: "Cabinet Grotesk"; */
+  font-weight: 700;
+  letter-spacing: 0;
+  font-size: 20px;
+  width: 367px;
+  height: 48px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0;
+  margin-top: 60px;
+  opacity: 1;
+}
+
+.confirm_delete {
+  color: red;
+  border: 0;
+  background-color: white;
+}
+
+.cancel_delete {
+  border: 0;
+  background-color: white;
+}

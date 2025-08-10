@@ -1,0 +1,13 @@
+.modal__footer-item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 32px;
+}
+
+.delete__button {
+  height: 13px;
+  border: 0;
+  color: red;
+  background-color: white;
+  /* padding-right: 34px; */
+}

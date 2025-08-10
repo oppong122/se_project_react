@@ -1,0 +1,11 @@
+.profile {
+  display: flex;
+  gap: 116px;
+}
+
+.profile__clothSection {
+  display: flex;
+  flex-direction: column;
+  width: 1015px;
+  /* margin-top: 45px; */
+}

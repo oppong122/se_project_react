@@ -1,7 +1,6 @@
-import clear from "../../assets/day/clear.png";
 import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
-function WeatherCard({ weatherData }) {
+function WeatherCard({ weatherData, currentTemperatureUnit }) {
   const filteredOption = weatherOptions.filter((option) => {
     // debugger;
     return (
@@ -16,12 +15,12 @@ function WeatherCard({ weatherData }) {
   } else {
     weatherOption = filteredOption[0];
   }
-
-  console.log(weatherOption);
-
+  // console.log("Unit", currentTemperatureUnit);
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp.F} &deg;</p>
+      <p className="weather-card__temp">
+        {weatherData.temp[currentTemperatureUnit]} &deg;
+      </p>
       <img
         src={weatherOption?.url}
         alt={`Card showing ${weatherOption?.day ? "day" : "night"}time ${

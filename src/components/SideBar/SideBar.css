@@ -1,0 +1,10 @@
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.sidebar__userName {
+  white-space: nowrap;
+  margin-bottom: 0;
+}
