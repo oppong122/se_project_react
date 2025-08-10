@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 import logo from "../../assets/Logo.svg";
@@ -13,9 +13,9 @@ const currentDate = new Date().toLocaleString("default", {
 function Header({ handleAddClick, weatherData, onToggleChange, isToggled }) {
   return (
     <header className="header">
-      <Link to="/">
+      <NavLink to="/">
         <img src={logo} alt="logo" className="header__logo" />
-      </Link>
+      </NavLink>
       <p className="header__date-location">
         {currentDate}, {weatherData.city}
       </p>
@@ -33,12 +33,12 @@ function Header({ handleAddClick, weatherData, onToggleChange, isToggled }) {
           + Add clothes
         </button>
       </div>
-      <Link to="/Profile" className="profile__link">
+      <NavLink to="/Profile" className="profile__link">
         <div className="avatar__container">
           <p className="header__username">Terrence Tegegne</p>
           <img src={avatar} alt="Terrence" className="header__avatar" />
         </div>
-      </Link>
+      </NavLink>
     </header>
   );
 }

@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { getItems, addItems, deleteItems } from "../../Api";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Profile from "../Profile/Profile";
-import Header from "../Header/Header";
-import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
-import DeleteItemModal from "../DeleteModal/DeleteModal";
-import ItemModal from "../ItemModal/ItemModal";
+import Profile from "/src/components/Profile/Profile";
+import Header from "/src/components/Header/Header";
+import Main from "/src/components/Main/Main";
+import Footer from "/src/components/Footer/Footer";
+import DeleteItemModal from "/src/components/DeleteModal/DeleteModal";
+import ItemModal from "/src/components/ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../utils/Context/CurrentTemperatureUnitContext";
-import AddItemModal from "../AddItemModal/AddItemModal";
+import AddItemModal from "/src/components/AddItemModal/AddItemModal";
 // import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
