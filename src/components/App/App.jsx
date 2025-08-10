@@ -11,7 +11,7 @@ import DeleteItemModal from "../DeleteModal/DeleteModal";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
-import { CurrentTemperatureUnitContext } from "../Context/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../../utils/Context/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 // import { defaultClothingItems } from "../../utils/constants";
 
