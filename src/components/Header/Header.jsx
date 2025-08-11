@@ -33,7 +33,7 @@ function Header({ handleAddClick, weatherData, onToggleChange, isToggled }) {
           + Add clothes
         </button>
       </div>
-      <NavLink to="/Profile" className="profile__link">
+      <NavLink to="/profile" className="profile__link">
         <div className="avatar__container">
           <p className="header__username">Terrence Tegegne</p>
           <img src={avatar} alt="Terrence" className="header__avatar" />

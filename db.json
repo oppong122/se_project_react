@@ -85,16 +85,22 @@
       "_id": 17
     },
     {
-      "name": "klkkk",
+      "name": "Vacation Vibe",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
-      "weather": "cold",
-      "_id": 18
+      "weather": "warm",
+      "_id": 19
     },
     {
       "name": "Vacation Vibe",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
       "weather": "warm",
-      "_id": 19
+      "_id": 20
+    },
+    {
+      "name": "Vacation Vibe",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
+      "weather": "cold",
+      "_id": 21
     }
   ]
 }

@@ -1,6 +1,6 @@
 import "./ItemCard.css";
 
-function RenderCard({ item, onCardClick }) {
+function ItemCard({ item, onCardClick }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
@@ -17,4 +17,4 @@ function RenderCard({ item, onCardClick }) {
   );
 }
 
-export default RenderCard;
+export default ItemCard;
