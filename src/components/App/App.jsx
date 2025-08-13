@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { getItems, addItems, deleteItems } from "../../Api";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Profile from "/src/components/Profile/Profile";
-import Header from "/src/components/Header/Header";
-import Main from "/src/components/Main/Main";
-import Footer from "/src/components/Footer/Footer";
-import DeleteItemModal from "/src/components/DeleteModal/DeleteModal";
-import ItemModal from "/src/components/ItemModal/ItemModal";
+import Profile from "../Profile/Profile";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import DeleteItemModal from "../DeleteModal/DeleteModal";
+import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../utils/Context/CurrentTemperatureUnitContext";
-import AddItemModal from "/src/components/AddItemModal/AddItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
 // import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
@@ -25,15 +25,10 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [isToggled, setIsToggled] = useState(false);
-  // const [isDelete, setIsDelete] = useState(false);
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
-
-  // handleDeleteClick = () => {
-  //   setIsDelete("");
-  // };
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -62,7 +57,7 @@ function App() {
         closeActiveModal();
       })
       .catch((err) => {
-        console.log("Fetch error", err);
+        alert("Failed to add item. Please try again", err);
       });
   };
 
@@ -76,7 +71,7 @@ function App() {
         //use the arry method to iterate throught the current clothing items and remove the clothing itme by its id and use the setclothing itme function to set the value to return our
       })
       .catch((err) => {
-        console.log("Delete error", err);
+        alert("Failed to delete item. Please try again", err);
       });
   };
 
@@ -89,7 +84,7 @@ function App() {
         setWeatherData(filterData);
       })
       .catch((err) => {
-        console.log("Fetch error", err);
+        alert("Failed getting the weather. Please try again", err);
       });
   }, []);
 
@@ -100,7 +95,7 @@ function App() {
         // console.log("", data);
       })
       .catch((err) => {
-        console.log("Fetch error", err);
+        alert("Failed getting an item. Please try again", err);
       });
   }, []);
 
@@ -137,6 +132,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  onAddClick={handleAddClick}
                 />
               }
             />

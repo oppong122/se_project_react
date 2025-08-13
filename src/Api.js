@@ -1,11 +1,8 @@
+import { checkResponse } from "./utils/weatherApi";
 const baseUrl = "http://localhost:3001";
 
 function getItems() {
-  return fetch(`${baseUrl}/items`, {
-    // headers: { "Content-Type": "application/json" },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
 function addItems({ name, imageUrl, weather }) {
@@ -30,16 +27,12 @@ function deleteItems(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     headers: { "Content-Type": "application/json" },
     method: "DELETE",
-  })
-    .then((res) => {
-      if (!res.ok) {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-      return res.json();
-    })
-    .catch((err) => {
-      console.error("Failed to delete item:", err);
-    });
+  }).then((res) => {
+    if (!res.ok) {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+    return res.json();
+  });
 }
 
 // console.log(deleteItems)
