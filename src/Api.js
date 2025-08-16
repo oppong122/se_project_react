@@ -1,4 +1,4 @@
-import { checkResponse } from "./utils/weatherApi";
+import { checkResponse } from "./utils/checkResponse";
 const baseUrl = "http://localhost:3001";
 
 function getItems() {
@@ -14,27 +14,14 @@ function addItems({ name, imageUrl, weather }) {
       imageUrl,
       weather,
     }),
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 }
 
 function deleteItems(id) {
-  // console.log(deleteItems);
   return fetch(`${baseUrl}/items/${id}`, {
     headers: { "Content-Type": "application/json" },
     method: "DELETE",
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 }
 
-// console.log(deleteItems)
-
-export { getItems, addItems, deleteItems }; //deleteItems };
+export { getItems, addItems, deleteItems };

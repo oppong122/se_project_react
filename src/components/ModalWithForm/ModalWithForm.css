@@ -18,17 +18,15 @@
 .modal__content {
   background-color: #fff;
   position: relative;
-  width: 496px;
+  width: 498px;
+  max-height: 610px;
   padding: 28px;
   border-radius: 20px;
   object-fit: fill;
   box-sizing: border-box;
-  /* width: 100%; */
-  /* height: 436px; */
 }
 
 .modal__close-button {
-  /* /* line-height: 20px; */
   max-width: 20px;
   position: absolute;
   top: 20px;
@@ -45,16 +43,11 @@
   gap: 24px;
 }
 
-/*  */
-
 .form__title {
-  /* margin: 0; */
   margin: 0 0 24px 0;
   font-weight: 700;
   max-width: 100%;
   font-size: 16px;
-  /* height: 20px; */
-  /* font-family: Cabinet Grotesk; */
 }
 
 .modal__input {

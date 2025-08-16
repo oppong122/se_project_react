@@ -5,13 +5,11 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
-    // console.log(e.target.value);
     setName(e.target.value);
   };
 
   const [imageUrl, setImageUrl] = useState("");
   const handleUrlChange = (e) => {
-    // console.log(e.target.value);
     setImageUrl(e.target.value);
   };
 
@@ -23,13 +21,11 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onAddItem({ name, imageUrl, weather })
-      .then(() => {
-        setName("");
-        setImageUrl("");
-        setWeather("");
-      })
-      .catch((err) => console.log("Add item error:", err));
+    onAddItem({ name, imageUrl, weather }).then(() => {
+      setName("");
+      setImageUrl("");
+      setWeather("");
+    });
   };
 
   return (

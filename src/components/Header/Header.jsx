@@ -10,7 +10,7 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header({ handleAddClick, weatherData, onToggleChange, isToggled }) {
+function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <NavLink to="/">
@@ -21,10 +21,7 @@ function Header({ handleAddClick, weatherData, onToggleChange, isToggled }) {
       </p>
 
       <div className="header__user-container">
-        <ToggleSwitch
-          onChange={(value) => onToggleChange(value)}
-          isOn={isToggled}
-        />
+        <ToggleSwitch />
         <button
           onClick={handleAddClick}
           type="button"

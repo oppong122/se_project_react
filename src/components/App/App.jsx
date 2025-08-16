@@ -1,19 +1,20 @@
+// External library imports
 import { useEffect, useState } from "react";
-
-import { getItems, addItems, deleteItems } from "../../Api";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+// Internal component imports
 import Profile from "../Profile/Profile";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import DeleteItemModal from "../DeleteModal/DeleteModal";
 import ItemModal from "../ItemModal/ItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import { CurrentTemperatureUnitContext } from "../Context/CurrentTemperatureUnitContext";
+// Utility/API imports
+import { getItems, addItems, deleteItems } from "../../Api";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
-import { CurrentTemperatureUnitContext } from "../../utils/Context/CurrentTemperatureUnitContext";
-import AddItemModal from "../AddItemModal/AddItemModal";
-// import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -36,7 +37,6 @@ function App() {
 
   const handleOpenDelete = () => {
     setActiveModal("delete-modal");
-    // setIsDelete(card);
   };
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -51,13 +51,13 @@ function App() {
   };
 
   const onAddItem = (item) => {
-    return addItems(item) // calls the API method to add the item
+    return addItems(item)
       .then((newItem) => {
         setClothingItems((clothingItems) => [newItem, ...clothingItems]);
         closeActiveModal();
       })
       .catch((err) => {
-        alert("Failed to add item. Please try again", err);
+        console.error("Failed to add item. Please try again", err);
       });
   };
 
@@ -68,14 +68,11 @@ function App() {
           clothingItems.filter((item) => item._id !== id)
         );
         closeActiveModal();
-        //use the arry method to iterate throught the current clothing items and remove the clothing itme by its id and use the setclothing itme function to set the value to return our
       })
       .catch((err) => {
-        alert("Failed to delete item. Please try again", err);
+        console.error("Failed to delete item. Please try again", err);
       });
   };
-
-  // console.log(clothingItems);
 
   useEffect(() => {
     getWeather(coordinates, APIkey)
@@ -84,7 +81,7 @@ function App() {
         setWeatherData(filterData);
       })
       .catch((err) => {
-        alert("Failed getting the weather. Please try again", err);
+        console.error("Failed getting the weather. Please try again", err);
       });
   }, []);
 
@@ -92,10 +89,9 @@ function App() {
     getItems()
       .then((data) => {
         setClothingItems(data);
-        // console.log("", data);
       })
       .catch((err) => {
-        alert("Failed getting an item. Please try again", err);
+        console.error("Failed getting an item. Please try again", err);
       });
   }, []);
 
@@ -105,12 +101,7 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header
-            handleAddClick={handleAddClick}
-            weatherData={weatherData}
-            onToggleChange={setIsToggled}
-            isToggle={isToggled}
-          />
+          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
 
           <Routes>
             <Route
@@ -155,7 +146,6 @@ function App() {
             handleDeleteItem={handleDeleteItem}
             onCloseDelete={closeActiveModal}
             card={selectedCard}
-            // confirmDelete={handleDeleteClick}
           />
 
           <Footer />

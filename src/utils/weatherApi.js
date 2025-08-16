@@ -1,10 +1,4 @@
-export const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject(`Error: ${res.status}`);
-  }
-};
+import { checkResponse } from "./checkResponse";
 
 export const getWeather = ({ latitude, longitude }, APIkey) => {
   return fetch(
@@ -26,8 +20,6 @@ export const filterWeatherData = (data) => {
 };
 
 const isDay = ({ sunrise, sunset }, now) => {
-  // const now = Date.now();
-  // converting sunrise and sunset from seconds to milliseconds by multplying by 1000
   return sunrise * 1000 < now && now > sunset * 1000;
 };
 
@@ -40,6 +32,3 @@ const getWeatherType = (temperature) => {
     return "cold";
   }
 };
-
-// weather.temperature.F = data.main.temp;
-// weather.temperature.C = Math.round((data.main.temp - 32) * 5/9);

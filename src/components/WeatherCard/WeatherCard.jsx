@@ -2,7 +2,6 @@ import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 function WeatherCard({ weatherData, currentTemperatureUnit }) {
   const filteredOption = weatherOptions.filter((option) => {
-    // debugger;
     return (
       option.day === weatherData.isDay &&
       option.condition === weatherData.condition
@@ -15,7 +14,7 @@ function WeatherCard({ weatherData, currentTemperatureUnit }) {
   } else {
     weatherOption = filteredOption[0];
   }
-  // console.log("Unit", currentTemperatureUnit);
+
   return (
     <section className="weather-card">
       <p className="weather-card__temp">

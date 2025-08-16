@@ -1,7 +1,6 @@
 import "./DeleteModal.css";
 import closeDeleteModal from "../../assets/close.svg";
-// import ModalWithForm from "../ModalWithForm/ModalWithForm";
-// import { useState } from "react";
+
 const DeleteItemModal = ({
   isOpen,
   handleDeleteItem,
@@ -27,7 +26,6 @@ const DeleteItemModal = ({
           <button
             className="confirm_delete"
             onClick={() => handleDeleteItem(card._id)}
-            // onClick={confirmDelete}
           >
             Yes, delete item
           </button>
