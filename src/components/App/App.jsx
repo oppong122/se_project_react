@@ -10,9 +10,9 @@ import Footer from "../Footer/Footer";
 import DeleteItemModal from "../DeleteModal/DeleteModal";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { CurrentTemperatureUnitContext } from "../../context/Context/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../../Context/CurrentTemperatureUnitContext.jx";
 // Utility/API imports
-import { getItems, addItems, deleteItems } from "../../Api";
+import { getItems, addItems, deleteItems } from "../../utils/Api";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 
