@@ -7,10 +7,11 @@ import "./Main.css";
 function Main({
   weatherData,
   handleCardClick,
-
-  clothingItems,
+  clothingItems = [],
+  onCardLike,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const items = Array.isArray(clothingItems) ? clothingItems : [];
   return (
     <main>
       <WeatherCard
@@ -25,7 +26,7 @@ function Main({
         <ul className="card__list">
           {clothingItems
             .filter((item) => {
-              return item.weather === weatherData.type;
+              return item.weather === weatherData?.type;
             })
             .map((item) => {
               return (
@@ -33,6 +34,7 @@ function Main({
                   key={item._id}
                   item={item}
                   onCardClick={handleCardClick}
+                  onCardLike={onCardLike}
                 />
               );
             })}

@@ -18,6 +18,9 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
     setWeather(e.target.value);
   };
 
+  const isDisabled =
+    name.trim() === "" || imageUrl.trim() === "" || weather.trim() === "";
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,6 +38,7 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
       onClose={closeActiveModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      isDisabled={isDisabled}
     >
       <label htmlFor="name" className="modal__label">
         Name

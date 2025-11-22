@@ -44,7 +44,6 @@
 }
 
 .form__title {
-  margin: 0 0 24px 0;
   font-weight: 700;
   max-width: 100%;
   font-size: 16px;
@@ -76,9 +75,13 @@
 }
 
 .modal__submit {
-  width: 124px;
-  padding: 16px 8px 16px 8px;
-  margin: 8px 0 8px 0;
+  width: 96px;
+  height: 30px;
+  padding: 5px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
 }
 .modal__content_type_image {
   padding: 0;
@@ -95,6 +98,24 @@
 
 .modal__weather {
   margin: 0;
+}
+
+.signin__up-btn {
+  display: flex;
+  max-height: 36px;
+  width: 187px;
+  gap: 8px;
+}
+
+.rendered_button {
+  border: none;
+  background-color: transparent;
+  width: 89px;
+}
+
+.modal__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 400px) {

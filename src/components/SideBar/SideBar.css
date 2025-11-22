@@ -1,10 +1,42 @@
 .sidebar {
   display: flex;
-  flex-direction: row;
-  gap: 16px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
 }
 
 .sidebar__userName {
   white-space: nowrap;
   margin-bottom: 0;
+}
+
+.sidebar__main {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.sidebar__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  border: 0;
+}
+
+.profile__edit {
+  border: 0;
+  text-align: left;
+  background-color: transparent;
+}
+
+.profile__logout {
+  border: 0;
+  text-align: left;
+  background-color: transparent;
 }

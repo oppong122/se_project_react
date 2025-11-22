@@ -1,13 +1,7 @@
 import "./DeleteModal.css";
 import closeDeleteModal from "../../assets/close.svg";
 
-const DeleteItemModal = ({
-  isOpen,
-  handleDeleteItem,
-  onCloseDelete,
-  card,
-  confirmDelete,
-}) => {
+const DeleteItemModal = ({ isOpen, handleDeleteItem, onCloseDelete, card }) => {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div className="modal_container modal_container-delete">

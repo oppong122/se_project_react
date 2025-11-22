@@ -8,7 +8,10 @@ function ModalWithForm({
   onClose,
   isOpen,
   onSubmit,
+  isDisabled,
+  secodaryButton,
 }) {
+  if (!isOpen) return null;
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
       <div className="modal__content">
@@ -18,9 +21,16 @@ function ModalWithForm({
         </button>
         <form className="modal__form" onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          <div className="signin__up-btn">
+            <button
+              type="submit"
+              className="modal__submit"
+              disabled={isDisabled}
+            >
+              {buttonText}
+            </button>
+            {secodaryButton}
+          </div>
         </form>
       </div>
     </div>
