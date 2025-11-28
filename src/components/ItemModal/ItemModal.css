@@ -10,3 +10,7 @@
   color: red;
   background-color: white;
 }
+
+.modal__delete-button_hidden {
+  display: none;
+}

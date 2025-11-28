@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CurrentTemperatureUnitContext } from "../../Context/CurrentTemperatureUnitContext.jx";
+import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext.js";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
@@ -9,6 +9,7 @@ function Main({
   handleCardClick,
   clothingItems = [],
   onCardLike,
+  isloggedIn,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const items = Array.isArray(clothingItems) ? clothingItems : [];
@@ -35,6 +36,7 @@ function Main({
                   item={item}
                   onCardClick={handleCardClick}
                   onCardLike={onCardLike}
+                  isloggedIn={isloggedIn}
                 />
               );
             })}

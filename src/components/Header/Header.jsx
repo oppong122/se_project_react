@@ -17,11 +17,11 @@ function Header({
   weatherData,
   onLoginClick,
   onRegisterClick,
-  loggedIn,
+  isloggedIn,
   onSignOut,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const isUserReady = loggedIn && currentUser;
+  const isUserReady = isloggedIn && currentUser;
 
   return (
     <header className="header">
@@ -32,58 +32,56 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
 
-      <>
-        <div className="header__user-container">
-          <ToggleSwitch />
-          {isUserReady ? (
-            <>
-              <button
-                onClick={handleAddClick}
-                type="button"
-                className="header__add-clothes-btn"
-              >
-                + Add clothes
-              </button>
+      <div className="header__user-container">
+        <ToggleSwitch />
+        {isUserReady ? (
+          <>
+            <button
+              onClick={handleAddClick}
+              type="button"
+              className="header__add-clothes-btn"
+            >
+              + Add clothes
+            </button>
 
-              <NavLink to="/profile" className="profile__link">
-                <div className="avatar__container">
-                  <p className="header__username">{currentUser.name}</p>
-                  <img
-                    src={currentUser.avatar}
-                    alt={currentUser.name}
-                    className="header__avatar"
-                  />
-                </div>
-              </NavLink>
+            <NavLink to="/profile" className="profile__link">
+              <div className="avatar__container">
+                <p className="header__username">{currentUser.name}</p>
+                <img
+                  src={currentUser.avatar}
+                  alt={currentUser.name}
+                  className="header__avatar"
+                />
+              </div>
+            </NavLink>
 
-              <button
-                type="button"
-                className="header__signout-btn"
-                onClick={onSignOut}
-              >
-                Sign out
-              </button>
-            </>
-          ) : (
-            <div className="signup__login-btns">
-              <button
-                type="button"
-                className="header__auth-btn"
-                onClick={onRegisterClick}
-              >
-                Sign Up
-              </button>
-              <button
-                type="button"
-                className="header__auth-btn"
-                onClick={onLoginClick}
-              >
-                Log In
-              </button>
-            </div>
-          )}
-        </div>
-      </>
+            <button
+              type="button"
+              className="header__signout-btn"
+              onClick={onSignOut}
+            >
+              Sign out
+            </button>
+          </>
+        ) : (
+          <div className="signup__login-btns">
+            <button
+              type="button"
+              className="header__auth-btn"
+              onClick={onRegisterClick}
+            >
+              Sign Up
+            </button>
+            <button
+              type="button"
+              className="header__auth-btn"
+              onClick={onLoginClick}
+            >
+              Log In
+            </button>
+          </div>
+        )}
+      </div>
     </header>
   );
 }

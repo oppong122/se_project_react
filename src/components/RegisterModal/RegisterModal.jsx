@@ -36,7 +36,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isDisabled={isDisabled}
-      secodaryButton={
+      secondaryButton={
         <button className="rendered_button" onClick={onLoginSwitch}>
           or Log In
         </button>

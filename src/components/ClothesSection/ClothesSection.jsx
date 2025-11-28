@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import CurrentUserContext from "../../context/CurrentUserContext";
-import { addCardLike, removeCardLike } from "../../utils/Api";
 
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
@@ -15,8 +14,8 @@ function ClothesSection({ onCardClick, clothingItems, onAddClick }) {
   return (
     <div className="cloth-section">
       <div className="cloth-item__container">
-        <p className="cothe-section__item">Your Items</p>
-        <button className="cothe-section__button" onClick={onAddClick}>
+        <p className="coth-section__item">Your Items</p>
+        <button className="coth-section__button" onClick={onAddClick}>
           + Add New
         </button>
       </div>

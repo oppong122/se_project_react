@@ -27,7 +27,7 @@ const LoginModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       isDisabled={isDisabled}
-      secodaryButton={
+      secondaryButton={
         <button className="rendered_button" onClick={onRegisterSwitch}>
           or Sign Up
         </button>

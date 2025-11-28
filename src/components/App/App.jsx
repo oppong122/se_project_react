@@ -13,7 +13,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectectedRoute/ProtectedRoute";
-import { CurrentTemperatureUnitContext } from "../../Context/CurrentTemperatureUnitContext.jx";
+import { CurrentTemperatureUnitContext } from "../../Context/CurrentTemperatureUnitContext.js";
 import CurrentUserContext from "../../context/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
@@ -48,7 +48,7 @@ function App() {
   const [isSavingProfile, setIsSavingProfile] = useState(false);
 
   // Auth state
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [isloggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [authError, setAuthError] = useState("");
 
@@ -136,8 +136,15 @@ function App() {
   const handleRegister = (formData) => {
     setAuthError("");
     return register(formData)
+      .then(() => authorization(formData))
+      .then((data) => {
+        if (!data || !data.token) {
+          return Promise.reject(new Error("No token recieved"));
+        }
+      })
       .then(() => {
-        isRegisterOpen(true);
+        setCurrentUser(user);
+        setIsLoggedIn(true);
         setIsRegisterOpen(false);
       })
       .catch((err) => {
@@ -153,7 +160,7 @@ function App() {
         return getCurrentUser(res.token);
       })
       .then((user) => {
-        setLoggedIn(true);
+        setIsLoggedIn(true);
         setCurrentUser(user);
         closeActiveModal();
       })
@@ -167,7 +174,7 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
-    setLoggedIn(false);
+    setIsLoggedIn(false);
     setCurrentUser(null);
   };
 
@@ -198,12 +205,12 @@ function App() {
     if (!token) return;
     getCurrentUser(token)
       .then((user) => {
-        setLoggedIn(true);
+        setIsLoggedIn(true);
         setCurrentUser(user);
       })
       .catch(() => {
         localStorage.removeItem("jwt");
-        setLoggedIn(false);
+        setIsLoggedIn(false);
         setCurrentUser(null);
       });
   }, []);
@@ -222,7 +229,7 @@ function App() {
               weatherData={weatherData}
               onLoginClick={() => setActiveModal("login")}
               onRegisterClick={() => setActiveModal("register")}
-              loggedIn={loggedIn}
+              isloggedIn={isloggedIn}
               onSignOut={handleLogout}
             />
 
@@ -237,6 +244,7 @@ function App() {
                     currentTemperatureUnit={currentTemperatureUnit}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
+                    isloggedIn={isloggedIn}
                   />
                 }
               />
@@ -244,7 +252,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute loggedIn={loggedIn}>
+                  <ProtectedRoute isloggedIn={isloggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}

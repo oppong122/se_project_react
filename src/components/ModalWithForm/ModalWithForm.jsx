@@ -9,7 +9,7 @@ function ModalWithForm({
   isOpen,
   onSubmit,
   isDisabled,
-  secodaryButton,
+  secondaryButton,
 }) {
   if (!isOpen) return null;
   return (
@@ -29,7 +29,7 @@ function ModalWithForm({
             >
               {buttonText}
             </button>
-            {secodaryButton}
+            {secondaryButton}
           </div>
         </form>
       </div>
