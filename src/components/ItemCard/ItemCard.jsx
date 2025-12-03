@@ -11,10 +11,6 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
     Array.isArray(item.likes) &&
     item.likes.some((id) => id === currentUser?._id);
 
-  // const isLiked = Array.isArray(item.likes)
-  //   ? item.likes.some((id) => id === currentUser?._id)
-  //   : false;
-
   const itemLikeBtnClassName = `card__like ${
     isLiked ? "card__like-active" : ""
   }`;
@@ -25,10 +21,8 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
 
   const handleCardLike = (e) => {
     e.preventDefault();
-    console.log("here:", isLoggedIn);
-    console.log("handleCardlike click here", isLoggedIn, currentUser);
+
     if (!isLoggedIn || !currentUser) {
-      console.log("Block: not logged in");
       return;
     }
     if (onCardLike) {

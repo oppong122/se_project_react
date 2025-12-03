@@ -74,7 +74,6 @@ function App() {
   };
 
   const handleProfileEdit = () => {
-    console.log("App: openEditProfile");
     setActiveModal("edit__profile");
   };
   const handleCloseEditModal = () => setActiveModal("");
@@ -93,7 +92,6 @@ function App() {
 
   const handleDeleteItem = (id) => {
     const token = localStorage.getItem("jwt");
-    console.log(token);
     return deleteItems(id, token)
       .then(() => {
         setClothingItems((clothingItems) =>
@@ -156,7 +154,6 @@ function App() {
         closeActiveModal();
       })
       .catch((err) => {
-        console.log("handlelogin catch err:", err);
         const message =
           err?.message || err?.err || "Incorrect email or password";
         setAuthError(message);
