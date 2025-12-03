@@ -48,7 +48,7 @@ function App() {
   const [isSavingProfile, setIsSavingProfile] = useState(false);
 
   // Auth state
-  const [isloggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [authError, setAuthError] = useState("");
 
@@ -106,7 +106,7 @@ function App() {
       });
   };
 
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleCardLike = (id, isLiked) => {
     const token = localStorage.getItem("jwt");
     const request = isLiked ? removeCardLike : addCardLike;
 
@@ -136,17 +136,8 @@ function App() {
   const handleRegister = (formData) => {
     setAuthError("");
     return register(formData)
-      .then(() => authorization(formData))
-      .then((data) => {
-        if (!data || !data.token) {
-          return Promise.reject(new Error("No token recieved"));
-        }
-      })
-      .then(() => {
-        setCurrentUser(user);
-        setIsLoggedIn(true);
-        setIsRegisterOpen(false);
-      })
+      .then(() => handleLogin(formData))
+
       .catch((err) => {
         setAuthError(err?.message || "Signup failed");
       });
@@ -229,7 +220,7 @@ function App() {
               weatherData={weatherData}
               onLoginClick={() => setActiveModal("login")}
               onRegisterClick={() => setActiveModal("register")}
-              isloggedIn={isloggedIn}
+              isLoggedIn={isLoggedIn}
               onSignOut={handleLogout}
             />
 
@@ -244,7 +235,7 @@ function App() {
                     currentTemperatureUnit={currentTemperatureUnit}
                     clothingItems={clothingItems}
                     onCardLike={handleCardLike}
-                    isloggedIn={isloggedIn}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -252,7 +243,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isloggedIn={isloggedIn}>
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
@@ -260,6 +251,8 @@ function App() {
                       currentUser={currentUser}
                       onLogout={handleLogout}
                       onProfileEdit={handleProfileEdit}
+                      isLoggedIn={isLoggedIn}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
                 }

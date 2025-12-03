@@ -9,7 +9,7 @@ function Main({
   handleCardClick,
   clothingItems = [],
   onCardLike,
-  isloggedIn,
+  isLoggedIn,
 }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const items = Array.isArray(clothingItems) ? clothingItems : [];
@@ -36,7 +36,7 @@ function Main({
                   item={item}
                   onCardClick={handleCardClick}
                   onCardLike={onCardLike}
-                  isloggedIn={isloggedIn}
+                  isLoggedIn={isLoggedIn}
                 />
               );
             })}

@@ -17,11 +17,11 @@ function Header({
   weatherData,
   onLoginClick,
   onRegisterClick,
-  isloggedIn,
+  isLoggedIn,
   onSignOut,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const isUserReady = isloggedIn && currentUser;
+  const isUserReady = isLoggedIn && currentUser;
 
   return (
     <header className="header">

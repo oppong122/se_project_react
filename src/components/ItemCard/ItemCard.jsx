@@ -4,7 +4,7 @@ import likeInactive from "../../assets/likeButton.svg";
 import likeActive from "../../assets/likeButtonActive.svg";
 import "./ItemCard.css";
 
-function ItemCard({ item, onCardClick, onCardLike, isloggedIn }) {
+function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const currentUser = useContext(CurrentUserContext);
 
   const isLiked =
@@ -25,14 +25,14 @@ function ItemCard({ item, onCardClick, onCardLike, isloggedIn }) {
 
   const handleCardLike = (e) => {
     e.preventDefault();
-    console.log("here:", isloggedIn);
-    console.log("handleCardlike click here", isloggedIn, currentUser);
-    if (isloggedIn || currentUser) {
+    console.log("here:", isLoggedIn);
+    console.log("handleCardlike click here", isLoggedIn, currentUser);
+    if (!isLoggedIn || !currentUser) {
       console.log("Block: not logged in");
       return;
     }
     if (onCardLike) {
-      onCardLike(item);
+      onCardLike(item._id, isLiked);
     }
   };
 
@@ -40,7 +40,7 @@ function ItemCard({ item, onCardClick, onCardLike, isloggedIn }) {
     <li className="card">
       <div className="card__header">
         <h2 className="card__name">{item.name} </h2>
-        {isloggedIn && currentUser && (
+        {isLoggedIn && currentUser && (
           <button
             type="button"
             className={itemLikeBtnClassName}
