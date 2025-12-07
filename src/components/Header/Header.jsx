@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import currentUserContext from "../../context/currentUserContext";
 import "./Header.css";
 
 import logo from "../../assets/Logo.svg";
@@ -20,7 +20,7 @@ function Header({
   isLoggedIn,
   onSignOut,
 }) {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(currentUserContext);
   const isUserReady = isLoggedIn && currentUser;
 
   return (

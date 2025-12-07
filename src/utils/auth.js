@@ -1,11 +1,5 @@
 export const BASE_URL = "http://localhost:3001";
-
-function handleResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return res.json().then((err) => Promise.reject(err));
-}
+import { checkResponse } from "./checkResponse";
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -15,7 +9,7 @@ export const register = ({ name, avatar, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(handleResponse);
+  }).then(checkResponse);
 };
 
 export const authorization = ({ email, password }) => {
@@ -26,7 +20,7 @@ export const authorization = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(handleResponse);
+  }).then(checkResponse);
 };
 export const getProfile = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
@@ -35,5 +29,5 @@ export const getProfile = (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then(handleResponse);
+  }).then(checkResponse);
 };

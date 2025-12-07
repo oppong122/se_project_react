@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const CurrentUserContext = createContext();
+const currentUserContext = createContext();
 
-export default CurrentUserContext;
+export default currentUserContext;

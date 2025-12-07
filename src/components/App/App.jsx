@@ -13,8 +13,8 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectectedRoute/ProtectedRoute";
-import { CurrentTemperatureUnitContext } from "../../Context/CurrentTemperatureUnitContext.js";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import { currentTemperatureUnitContext } from "../../context/currentTemperatureUnitContext.js";
+import currentUserContext from "../../context/currentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 // Utility/API imports
@@ -42,7 +42,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [isToggled, setIsToggled] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const [isSavingProfile, setIsSavingProfile] = useState(false);
@@ -76,7 +75,6 @@ function App() {
   const handleProfileEdit = () => {
     setActiveModal("edit__profile");
   };
-  const handleCloseEditModal = () => setActiveModal("");
 
   const onAddItem = (item) => {
     const token = localStorage.getItem("jwt");
@@ -115,7 +113,7 @@ function App() {
         );
       })
       .catch((err) => {
-        console.error("like erro:", err);
+        console.error("like error:", err);
       });
   };
 
@@ -125,6 +123,7 @@ function App() {
     updateProfile({ name, avatar }, token)
       .then((user) => {
         setCurrentUser(user);
+        closeActiveModal();
       })
       .catch(console.error)
       .finally(() => setIsSavingProfile(false));
@@ -206,9 +205,9 @@ function App() {
   // Renderer
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <currentUserContext.Provider value={currentUser}>
       <div className="page">
-        <CurrentTemperatureUnitContext.Provider
+        <currentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <div className="page__content">
@@ -245,7 +244,6 @@ function App() {
                       onCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       onAddClick={handleAddClick}
-                      currentUser={currentUser}
                       onLogout={handleLogout}
                       onProfileEdit={handleProfileEdit}
                       isLoggedIn={isLoggedIn}
@@ -258,7 +256,7 @@ function App() {
 
             <EditProfileModal
               isOpen={activeModal === "edit__profile"}
-              onClose={handleCloseEditModal}
+              onClose={closeActiveModal}
               isSaving={isSavingProfile}
               onSubmit={handleUpdateProfile}
             />
@@ -297,9 +295,9 @@ function App() {
 
             <Footer />
           </div>
-        </CurrentTemperatureUnitContext.Provider>
+        </currentTemperatureUnitContext.Provider>
       </div>
-    </CurrentUserContext.Provider>
+    </currentUserContext.Provider>
   );
 }
 

@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import currentUserContext from "../../context/currentUserContext";
 import likeInactive from "../../assets/likeButton.svg";
 import likeActive from "../../assets/likeButtonActive.svg";
 import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(currentUserContext);
 
   const isLiked =
     Array.isArray(item.likes) &&

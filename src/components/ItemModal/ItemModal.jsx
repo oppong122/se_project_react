@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import currentUserContext from "../../context/currentUserContext";
 import "./ItemModal.css";
 import closeButton from "../../assets/close.svg";
 
 function ItemModal({ activeModal, card, onClose, onDelete }) {
   const isOpen = activeModal === "preview" && card;
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(currentUserContext);
 
   const ownerId = typeof card.owner === "object" ? card.owner._id : card.owner;
 

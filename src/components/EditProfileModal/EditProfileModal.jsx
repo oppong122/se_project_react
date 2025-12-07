@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import currentUserContext from "../../context/currentUserContext";
 import "./EditProfileModal.css";
 import closeButton from "../../assets/close.svg";
 
 function EditProfileModal({ isOpen, onClose, isSaving, onSubmit }) {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(currentUserContext);
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
@@ -17,7 +17,6 @@ function EditProfileModal({ isOpen, onClose, isSaving, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onClose();
     onSubmit({ name: name.trim(), avatar: avatar.trim() });
   };
   if (!isOpen) return null;

@@ -16,7 +16,12 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ email, password });
+    onLogin({ email, password })
+      .then(() => {
+        setEmail("");
+        setPassword("");
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -50,7 +55,7 @@ const LoginModal = ({
         Password
         <input
           type="password"
-          className={`modal__input 4{isError ? "input-error": ""}`}
+          className={`modal__input ${authError ? "input-error" : ""}`}
           required
           minLength="7"
           id="login-password"

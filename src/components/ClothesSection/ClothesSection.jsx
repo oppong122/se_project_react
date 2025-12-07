@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import CurrentUserContext from "../../context/CurrentUserContext";
+import currentUserContext from "../../context/currentUserContext";
 
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
@@ -11,7 +11,7 @@ function ClothesSection({
   isLoggedIn,
   onCardLike,
 }) {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(currentUserContext);
   const userItems = clothingItems.filter((item) => {
     const owner = typeof item.owner === "object" ? item.owner?._id : item.owner;
     return owner === currentUser?._id;
