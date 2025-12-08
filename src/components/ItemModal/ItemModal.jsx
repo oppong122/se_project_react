@@ -21,7 +21,11 @@ function ItemModal({ activeModal, card, onClose, onDelete }) {
         <button onClick={onClose} className="modal__close-button" type="button">
           <img src={closeButton} alt="close" />
         </button>
-        <img src={card.imageUrl} alt="card" className="modal__image" />
+        <img
+          src={card.imageUrl}
+          alt="card"
+          className="modal__image modal__image-fix"
+        />
 
         <div className="modal__footer modal__footer-item">
           <div>

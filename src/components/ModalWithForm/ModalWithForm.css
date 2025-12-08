@@ -71,8 +71,9 @@
   margin-bottom: 12px;
 }
 .modal__image {
-  max-width: 100%;
-  object-fit: contain;
+  width: 498px;
+  height: 498px;
+  object-fit: cover;
   border: 0;
 }
 

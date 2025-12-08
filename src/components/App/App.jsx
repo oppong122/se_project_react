@@ -80,7 +80,7 @@ function App() {
     const token = localStorage.getItem("jwt");
     return addItems(item, token)
       .then((newItem) => {
-        setClothingItems((clothingItems) => [newItem, ...clothingItems]);
+        setClothingItems((clothingItems) => [newItem.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch((err) => {
