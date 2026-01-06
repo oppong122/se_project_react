@@ -13,12 +13,12 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectectedRoute/ProtectedRoute";
-import { currentTemperatureUnitContext } from "../../context/currentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext.js";
 import currentUserContext from "../../context/currentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 // Utility/API imports
-import { register, authorization, getProfile } from "../../utils/auth";
+import { register, authorization } from "../../utils/auth";
 import {
   getItems,
   addItems,
@@ -207,7 +207,7 @@ function App() {
   return (
     <currentUserContext.Provider value={currentUser}>
       <div className="page">
-        <currentTemperatureUnitContext.Provider
+        <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <div className="page__content">
@@ -295,7 +295,7 @@ function App() {
 
             <Footer />
           </div>
-        </currentTemperatureUnitContext.Provider>
+        </CurrentTemperatureUnitContext.Provider>
       </div>
     </currentUserContext.Provider>
   );

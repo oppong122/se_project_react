@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import currentUserContext from "../../context/currentUserContext";
+import CurrentUserContext from "../../context/currentUserContext";
 
 // import avatar from "../../assets/avatar.png";
 import "./SideBar.css";
 
 function SideBar({ onLogout, onProfileEdit }) {
-  const currentUser = useContext(currentUserContext);
+  const currentUser = useContext(CurrentUserContext);
   return (
     <div className="sidebar">
       <div className="sidebar__main">

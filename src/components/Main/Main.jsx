@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { currentTemperatureUnitContext } from "../../context/currentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../../context/CurrentTemperatureUnitContext.js";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
@@ -11,7 +11,7 @@ function Main({
   onCardLike,
   isLoggedIn,
 }) {
-  const { currentTemperatureUnit } = useContext(currentTemperatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const items = Array.isArray(clothingItems) ? clothingItems : [];
   return (
     <main>
