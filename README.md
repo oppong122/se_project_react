@@ -1,7 +1,10 @@
 # React + Vite
 
-Back-End Link to my repo
+Back-End Link to my Repo
 https://github.com/oppong122/se_project_express.git
+
+Frontend link tro my Repo
+https://github.com/oppong122/se_project_react.git
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
