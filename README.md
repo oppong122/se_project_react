@@ -3,14 +3,7 @@
 Back-End Link to my Repo
 https://github.com/oppong122/se_project_express.git
 
-Frontend link tro my Repo
-https://github.com/oppong122/se_project_react.git
-
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Check this vidoe
-https://drive.google.com/file/d/16eMCujExn085V3qYCRNuFfJ2rZ5EP7FD/view?usp=share_link where I describe my
-project and some challenges I faced while building it.
 
 Currently, two official plugins are available:
 
