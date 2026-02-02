@@ -40,5 +40,3 @@ export const coordinates = {
   latitude: 40.849781,
   longitude: -73.868858,
 };
-
-// export default { BASE_URL };
